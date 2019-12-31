@@ -16,10 +16,6 @@ define key_r $72
 define key_f $66
 define key_t $74
 define key_g $67
-define key_y $79
-define key_h $68
-define key_u $75
-define key_j $6A
 
 ; System Vars (Addresses)
 define lastKey $FF
@@ -30,9 +26,41 @@ define blank $00
 
 
 loop:
+  lda #$00
+  sta lastKey
   jsr readKeys
   jmp loop
 
 readKeys:
   lda lastKey
+  cmp #key_e
+  beq inOne
+  cmp #key_d
+  beq deOne
+  rts
+
+inOne:
+  ldx digit_one
+  inx
+  stx digit_one
+  cpx #$0A
+  beq oneOverflow
+  rts
+
+oneOverflow:
+  ldx #$00
+  stx digit_one
+  rts
+
+deOne:
+  ldx digit_one
+  dex
+  stx digit_one
+  cpx #$FF
+  beq oneUnderflow
+  rts
+
+oneUnderflow:
+  ldx #$09
+  stx digit_one
   rts
