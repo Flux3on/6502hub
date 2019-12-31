@@ -1,4 +1,4 @@
-; Number Display in Skilldrick's 6502 Simulator
+; Crappy Number Display in Skilldrick's 6502 Simulator
 ; Labels: 72
 ; Assembled code size: 700 Bytes
 ; By Flux3on
