@@ -85,6 +85,7 @@ inTwo:
 twoOverflow:
   ldx #$00
   stx digit_two
+  jmp inOne
   rts
 
 deTwo:
@@ -98,6 +99,7 @@ deTwo:
 twoUnderflow:
   ldx #$09
   stx digit_two
+  jmp deOne
   rts
 
 inThree:
@@ -111,6 +113,7 @@ inThree:
 threeOverflow:
   ldx #$00
   stx digit_three
+  jmp inTwo
   rts
 
 deThree:
@@ -124,6 +127,10 @@ deThree:
 threeUnderflow:
   ldx #$09
   stx digit_three
+  jmp deTwo
+  rts
+
+drawZero:
   rts
 
 drawDigitOne:
@@ -161,4 +168,5 @@ dOneRowFive:
   ldy #$00
   ldx digit_one
   cpx #$00
+  beq drawZero
   rts
