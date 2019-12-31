@@ -49,84 +49,84 @@ readKeys:
   rts
 
 inOne:
-  ldx digit_one
-  inx
-  stx digit_one
-  cpx #$0A
+  ldy digit_one
+  iny
+  sty digit_one
+  cpy #$0A
   beq oneOverflow
   rts
 
 oneOverflow:
-  ldx #$00
-  stx digit_one
+  ldy #$00
+  sty digit_one
   rts
 
 deOne:
-  ldx digit_one
-  dex
-  stx digit_one
-  cpx #$FF
+  ldy digit_one
+  dey
+  sty digit_one
+  cpy #$FF
   beq oneUnderflow
   rts
 
 oneUnderflow:
-  ldx #$09
-  stx digit_one
+  ldy #$09
+  sty digit_one
   rts
 
 inTwo:
-  ldx digit_two
-  inx
-  stx digit_two
-  cpx #$0A
+  ldy digit_two
+  iny
+  sty digit_two
+  cpy #$0A
   beq twoOverflow
   rts
 
 twoOverflow:
-  ldx #$00
-  stx digit_two
+  ldy #$00
+  sty digit_two
   jmp inOne
   rts
 
 deTwo:
-  ldx digit_two
-  dex
-  stx digit_two
-  cpx #$FF
+  ldy digit_two
+  dey
+  sty digit_two
+  cpy #$FF
   beq twoUnderflow
   rts
 
 twoUnderflow:
-  ldx #$09
-  stx digit_two
+  ldy #$09
+  sty digit_two
   jmp deOne
   rts
 
 inThree:
-  ldx digit_three
-  inx
-  stx digit_three
-  cpx #$0A
+  ldy digit_three
+  iny
+  sty digit_three
+  cpy #$0A
   beq threeOverflow
   rts
 
 threeOverflow:
-  ldx #$00
-  stx digit_three
+  ldy #$00
+  sty digit_three
   jmp inTwo
   rts
 
 deThree:
-  ldx digit_three
-  dex
-  stx digit_three
-  cpx #$FF
+  ldy digit_three
+  dey
+  sty digit_three
+  cpy #$FF
   beq threeUnderflow
   rts
 
 threeUnderflow:
-  ldx #$09
-  stx digit_three
+  ldy #$09
+  sty digit_three
   jmp deTwo
   rts
 
