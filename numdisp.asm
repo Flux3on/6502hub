@@ -28,9 +28,9 @@ define blank $00
 
 
 loop:
+  jsr readKeys
   lda #$00
   sta lastKey
-  jsr readKeys
   jsr drawDigitOne
   jsr drawDigitTwo
   jsr drawDigitThree
