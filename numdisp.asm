@@ -37,6 +37,8 @@ readKeys:
   beq inOne
   cmp #key_d
   beq deOne
+  cmp #key_r
+  beq inTwo
   rts
 
 inOne:
@@ -63,4 +65,17 @@ deOne:
 oneUnderflow:
   ldx #$09
   stx digit_one
+  rts
+
+inTwo:
+  ldx digit_two
+  inx
+  stx digit_two
+  cpx #$0A
+  beq twoOverflow
+  rts
+
+twoOverflow:
+  ldx #$00
+  stx digit_two
   rts
