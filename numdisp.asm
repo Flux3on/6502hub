@@ -5,11 +5,11 @@
 ;                 D   F   G   H   J
 
 ; Digit Locations (Addresses)
-define digit_one $00
-define digit_two $01
-define digit_three $02
-define digit_four $03
-define digit_five $04
+define digit_one   $10
+define digit_two   $11
+define digit_three $12
+define digit_four  $13
+define digit_five  $14
 
 ; ASCII locations on keyboard (Constants)
 define key_e $65
@@ -22,3 +22,6 @@ define key_y $79
 define key_h $68
 define key_u $75
 define key_j $6A
+
+; System Vars (Addresses)
+define lastKey $FF
