@@ -29,6 +29,7 @@ loop:
   lda #$00
   sta lastKey
   jsr readKeys
+  jsr drawDigitOne
   jmp loop
 
 readKeys:
@@ -123,4 +124,41 @@ deThree:
 threeUnderflow:
   ldx #$09
   stx digit_three
+  rts
+
+drawDigitOne:
+  lda #color
+  ldx #$00
+dOneRowOne:
+  sta $0200,X
+  inx
+  cpx #$03
+  bne dOneRowOne
+  ldx #$00
+dOneRowTwo:
+  sta $0220,X
+  inx
+  cpx #$03
+  bne dOneRowTwo
+  ldx #$00
+dOneRowThree:
+  sta $0240,X
+  inx
+  cpx #$03
+  bne dOneRowThree
+  ldx #$00
+dOneRowFour:
+  sta $0260,X
+  inx
+  cpx #$03
+  bne dOneRowFour
+  ldx #$00
+dOneRowFive:
+  sta $0280,X
+  inx
+  cpx #$03
+  bne dOneRowFive
+  ldy #$00
+  ldx digit_one
+  cpx #$00
   rts
