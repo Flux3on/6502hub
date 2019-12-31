@@ -39,6 +39,12 @@ readKeys:
   beq deOne
   cmp #key_r
   beq inTwo
+  cmp #key_f
+  beq deTwo
+  cmp #key_t
+  beq inThree
+  cmp #key_g
+  beq deThree
   rts
 
 inOne:
@@ -78,4 +84,43 @@ inTwo:
 twoOverflow:
   ldx #$00
   stx digit_two
+  rts
+
+deTwo:
+  ldx digit_two
+  dex
+  stx digit_two
+  cpx #$FF
+  beq twoUnderflow
+  rts
+
+twoUnderflow:
+  ldx #$09
+  stx digit_two
+  rts
+
+inThree:
+  ldx digit_three
+  inx
+  stx digit_three
+  cpx #$0A
+  beq threeOverflow
+  rts
+
+threeOverflow:
+  ldx #$00
+  stx digit_three
+  rts
+
+deThree:
+  ldx digit_three
+  dex
+  stx digit_three
+  cpx #$FF
+  beq threeUnderflow
+  rts
+
+threeUnderflow:
+  ldx #$09
+  stx digit_three
   rts
