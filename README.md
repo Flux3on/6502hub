@@ -1,8 +1,8 @@
-# 6502hub
-Repository for all of my 6502 ASM works.
+# assemblyhub
+Repository for all of my Assembly works.
 
 
-Feel free to modify and assemble them for any of them for your specific computer. My programs are built with [Skilldrick's](https://github.com/skilldrick) 6502 Simulator.
+Feel free to modify and assemble them for any of them for your specific computer.
 
 ## numdisp.asm
 Funny story actually, I had a block of code like this:
